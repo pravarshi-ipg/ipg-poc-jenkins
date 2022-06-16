@@ -19,9 +19,6 @@
 #include <stdlib.h>
 #include <string.h>
 
-#if defined(_DSRT)
-#  include <DsApplicationInterface.h>
-#endif
 
 #include <infoc.h>
 #include <CarMaker.h>
@@ -31,11 +28,11 @@
 extern const char *SetConnectedIO (const char *io);
 
 static const char *CompileLibs[] = {
-    /* /opt/ipg/carmaker/linux64-10.0.1/lib/libcar.a */
-    /* /opt/ipg/carmaker/linux64-10.0.1/lib/libcarmaker.a */
-    /* /opt/ipg/carmaker/linux64-10.0.1/lib/libipgdriver.a */
-    /* /opt/ipg/carmaker/linux64-10.0.1/lib/libipgroad.a */
-    /* /opt/ipg/carmaker/linux64-10.0.1/lib/libipgtire.a */
+    /* /net/dagobert/local/work.fh/cm100d/src_lib/Portings/linux64/lib/libcar.a */
+    /* /net/dagobert/local/work.fh/cm100d/src_lib/Portings/linux64/lib/libcarmaker.a */
+    /* /net/dagobert/local/work.fh/cm100d/lib/driver/linux64/lib/libipgdriver.a */
+    /* /net/dagobert/local/work.fh/cm100d/lib/road/linux64/lib/libipgroad.a */
+    /* /net/dagobert/local/work.fh/cm100d/lib/tire/linux64/lib/libipgtire.a */
     "libcar.a	CarMaker-Car linux64 10.0.1 2021-05-18",
     "libcarmaker.a	CarMaker linux64 10.0.1 2021-05-18",
     "libipgdriver.a	IPGDriver linux64 10.0 2021-03-29",
@@ -48,23 +45,23 @@ static const char *CompileLibs[] = {
 static const char *CompileFlags[] = {
     "-m64 -fPIC -O3 -DNDEBUG -DLINUX -DLINUX64 -D_GNU_SOURCE",
     "-D_FILE_OFFSET_BITS=64 -DCM_NUMVER=100001",
-    "-I/opt/ipg/carmaker/linux64-10.0.1/include -Wall",
-    "-Wimplicit -Wmissing-prototypes",
+    "-DMYMODELS -Wall -Wimplicit -Wmissing-prototypes",
+    "-fno-stack-protector -Wlogical-op",
     NULL
 };
 
 
 tAppStartInfo   AppStartInfo = {
-    "Car_Generic <insert.your.version.no>",          /* App_Version         */
-    "1",          /* App_BuildVersion    */
-    "pravarshi",     /* App_CompileUser     */
-    "pravarshi-lenovo-legion-7-15imh05",         /* App_CompileSystem   */
-    "2022-02-05 19:54:25",  /* App_CompileTime */
+    "CarMaker 10.0.1 - Car_Generic",          /* App_Version         */
+    "319",          /* App_BuildVersion    */
+    "fh",     /* App_CompileUser     */
+    "obelix.ipg",         /* App_CompileSystem   */
+    "2021-05-18 13:28:22",  /* App_CompileTime */
 
     CompileFlags,                /* App_CompileFlags  */
     CompileLibs,                 /* App_Libs          */
 
-    "10.0.1",          /* SetVersion        */
+    "",          /* SetVersion        */
 
     NULL,           /* TestRunName       */
     NULL,           /* TestRunFName      */
@@ -184,11 +181,4 @@ App_ExportConfig (void)
 }
 
 
-#if defined(_DS1006)
-void
-IPGRT_Board_Init (void)
-{
-    init();
-}
-#endif
 

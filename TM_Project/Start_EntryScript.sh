@@ -20,7 +20,12 @@ ls /home/TM_Project/Data/TestRun/ >>log.txt
 LINE=$((AWS_BATCH_JOB_ARRAY_INDEX + 1))
 FileName=$(sed -n ${LINE}p log.txt)
 echo ${FileName}
+echo ${RESULT_FILE_S3_URL}
 export FileName
+./src_tm/TruckMaker.linux64 ${FileName} -v -screen -dstore
 
+python3 resu.py
 
+aws s3 cp /home/TM_Project/SimOutput/ s3://jenkinsbucketnew/Results/ --recursive --exclude "*" --include "*.dat" 
+aws s3 cp /home/TM_Project/SimOutput/ s3://jenkinsbucketnew/Results/ --recursive --exclude "*" --include "*.dat.info" 
 
