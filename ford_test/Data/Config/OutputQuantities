@@ -1,7 +1,7 @@
 #INFOFILE1.1 - Do not remove this line!
 FileIdent = CarMaker-OutputQuantities 1
 
-DStore.Format = ascii
+DStore.Format = erg
 DStore.dt.fast = 0.001
 DStore.dt.normal = 0.01
 DStore.dt.slow = 0.1
@@ -60,7 +60,6 @@ DStore.Quantities.normal:
 	Car.vFR
 	Car.vRL
 	Car.vRR
-	Criteria
 	Sensor.Object.RadarL.relvTgt.NearPnt.ds_p
 	DM.Brake
 	DM.BrakeLever

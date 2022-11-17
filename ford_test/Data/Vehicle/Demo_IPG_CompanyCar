@@ -704,14 +704,17 @@ PowerTrain.Engine.FuelHeatValue = 11.3
 Sensor.Param.0.Name = SL_Param
 Sensor.Param.0.Type = SAngle
 Sensor.Param.0.File =
-Sensor.Param.N = 1
+Sensor.Param.1.Name = IN_Param
+Sensor.Param.1.Type = Inertial
+Sensor.Param.1.File =
+Sensor.Param.N = 2
 Sensor.Comment:
 
 ## Sensor Cluster ########################################################
 SensorCluster.N = 0
 
 ## Sensor Instances #####################################################
-Sensor.N = 1
+Sensor.N = 2
 Sensor.0.name = SL00
 Sensor.0.rot = 0.0 0.0 0.0
 Sensor.0.pos = 2.206 0.0 0.526
@@ -721,6 +724,16 @@ Sensor.0.Mounting = Fr1A
 Sensor.0.Active = 1
 Sensor.0.Ref.Param = 0
 Sensor.0.Ref.Cluster =
+Sensor.1.name = YRS
+Sensor.1.rot = 0.0 0.0 0.0
+Sensor.1.pos = 2.7 0.45 0.7
+Sensor.1.Visualization = 1
+Sensor.1.VisColor = 0.0 0.0 0.0
+Sensor.1.Mounting = Fr1A
+Sensor.1.Active = 1
+Sensor.1.Ref.Param = 1
+Sensor.1.Ref.Cluster =
+Sensor.1.CalcClass = Global+Local
 
 
 ## Vehicle Control #######################################################
