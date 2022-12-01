@@ -20,7 +20,7 @@ RUN apt-get update \
 
 RUN apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/3bf863cc.pub
 
-RUN echo 'build docker boss'
+RUN echo 'build docker boss111'
 
 
 
