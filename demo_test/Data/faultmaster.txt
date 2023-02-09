@@ -1,0 +1,4 @@
+testfile6 DM.Steer.Ang=0.7
+testfile1 DM.Steer.Ang=0.5
+testfile2 DM.Steer.Ang=0.6
+testfile5 DM.Steer.Ang=0.2
